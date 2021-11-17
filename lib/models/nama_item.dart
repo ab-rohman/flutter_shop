@@ -1,6 +1,6 @@
 class Item {
-  String name;
-  int price;
+  final String name;
+  final int price;
 
-  Item({required this.name, required this.price});
+  Item(this.name, this.price);
 }
