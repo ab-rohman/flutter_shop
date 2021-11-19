@@ -15,27 +15,52 @@ class ItemPage extends StatelessWidget {
         margin: EdgeInsets.all(8),
         child: Container(
           margin: EdgeInsets.all(8),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(child: Text('Nama Barang')),
-                  Expanded(
-                    child: Text('Harga'),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(child: Text(itemArgs.name)),
-                  Expanded(
-                    child: Text(
-                      itemArgs.price.toString(),
+          child: Card(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(child: Text('Nama Barang')),
+                    Expanded(
+                      child: Text('Harga'),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Expanded(
+                      child: Text('Stock'),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        child: Text(
+                      itemArgs.name,
+                      style: TextStyle(
+                          decoration: TextDecoration.none,
+                          fontWeight: FontWeight.w100,
+                          color: Colors.cyan),
+                    )),
+                    Expanded(
+                      child: Text(
+                        itemArgs.price.toString(),
+                        style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.w200,
+                            color: Colors.blueAccent),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        itemArgs.stock.toString(),
+                        style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.lightBlue),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
