@@ -1,5 +1,6 @@
 import 'package:belanja/models/nama_item.dart';
 import 'package:belanja/pages/item_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -56,6 +57,7 @@ class HomePage extends StatelessWidget {
                                   color: Colors.lightBlue),
                             ),
                           ),
+                          shopButton(),
                         ],
                       ),
                     ),
@@ -66,4 +68,59 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class imageAsset extends StatelessWidget {
+  const imageAsset({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    AssetImage gambarTas = AssetImage('images/tas.png');
+    Image image = Image(image: gambarTas);
+    return Container(
+      child: image,
+    );
+  }
+}
+
+class shopButton extends StatelessWidget {
+  const shopButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 25.0,
+      height: 10.0,
+      child: RaisedButton(
+          color: Colors.blueAccent,
+          child: Icon(Icons.shop),
+          elevation: 6.0,
+          onPressed: () {
+            buyAlert(context);
+            //you can write it like this
+            //onPressed: () => buyAlert(context);
+          }),
+    );
+  }
+
+  void buyAlert(BuildContext context) {
+    var buyDialog = AlertDialog(
+      title: Text("Buy ALert Dialog"),
+      content: Text("Happy Shopping"),
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return buyDialog;
+          //you can write it like this
+          //builder: (BuildContext context) => return buyDialog;
+        });
+  }
+}
+
+void showSnackBar(BuildContext context) {
+  var buySnackBar = SnackBar(content: Text("Are you sure want to buy it"));
+
+  Scaffold.of(context).showSnackBar(buySnackBar);
 }
